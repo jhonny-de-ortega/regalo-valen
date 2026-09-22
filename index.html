@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Val 💙💜</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== FONDO: CIELO, ESTRELLAS, LUNA, LLUVIA ==================== -->
+  <div id="cielo"></div>
+  <div id="luna"></div>
+  <div id="lluvia"></div>
+
+  <!-- ==================== PANTALLA 0: PORTADA ==================== -->
+  <section id="pantalla-portada" class="pantalla activa">
+    <div class="contenido-portada">
+      <h1 class="nombre-animado">Valentina</h1>
+      <p class="subtitulo">Val, Vale, Valen… este es nuestro universo.</p>
+      <button id="btn-comenzar" class="btn-principal">Comenzar</button>
+    </div>
+  </section>
+
+  <!-- ==================== PANTALLA 1: ¿QUIERES SEGUIR LEYENDO? ==================== -->
+  <section id="pantalla-pregunta" class="pantalla">
+    <div class="contenido-pregunta">
+      <h2>¿Quieres seguir adelante?</h2>
+      <div class="botones-pregunta">
+        <button id="btn-si" class="btn-principal">Sí</button>
+        <button id="btn-no" class="btn-secundario">No</button>
+      </div>
+      <p id="mensaje-no" class="mensaje-oculto"></p>
+    </div>
+  </section>
+
+  <!-- ==================== PANTALLA 2: MENÚ DE NIVELES ==================== -->
+  <section id="pantalla-menu" class="pantalla">
+    <div class="contenido-menu">
+      <h2>Niveles de nosotros</h2>
+      <p class="subtitulo-menu">Cada nivel desbloquea el siguiente. Solo tú puedes abrirlos.</p>
+      <div class="lista-niveles">
+        <button class="nivel" data-nivel="1">
+          <span class="icono-nivel">📞</span>
+          <span class="texto-nivel">Nivel 1 — Las llamadas</span>
+          <span class="candado">🔒</span>
+        </button>
+        <button class="nivel bloqueado" data-nivel="2">
+          <span class="icono-nivel">💬</span>
+          <span class="texto-nivel">Nivel 2 — Los chats</span>
+          <span class="candado">🔒</span>
+        </button>
+        <button class="nivel bloqueado" data-nivel="3">
+          <span class="icono-nivel">📸</span>
+          <span class="texto-nivel">Nivel 3 — Las fotos</span>
+          <span class="candado">🔒</span>
+        </button>
+        <button class="nivel bloqueado" data-nivel="4">
+          <span class="icono-nivel">🎥</span>
+          <span class="texto-nivel">Nivel 4 — Los videos</span>
+          <span class="candado">🔒</span>
+        </button>
+        <button class="nivel bloqueado" data-nivel="5">
+          <span class="icono-nivel">💌</span>
+          <span class="texto-nivel">Nivel 5 — Las palabras</span>
+          <span class="candado">🔒</span>
+        </button>
+        <button class="nivel bloqueado" data-nivel="6">
+          <span class="icono-nivel">🏆</span>
+          <span class="texto-nivel">Nivel 6 — La carta final</span>
+          <span class="candado">🔒</span>
+        </button>
+      </div>
+
+      <!-- Contador en vivo desde el 25/05/2026 -->
+      <div class="contador">
+        <p class="contador-titulo">Juntos desde el 25 de mayo de 2026</p>
+        <div class="contador-tiempo">
+          <div class="bloque-tiempo"><span id="dias">0</span><small>días</small></div>
+          <div class="bloque-tiempo"><span id="horas">0</span><small>horas</small></div>
+          <div class="bloque-tiempo"><span id="minutos">0</span><small>min</small></div>
+          <div class="bloque-tiempo"><span id="segundos">0</span><small>seg</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PANTALLA 3: NIVEL 1 — LLAMADAS ==================== -->
+  <section id="nivel-1" class="pantalla nivel-pantalla">
+    <div class="contenido-nivel">
+      <h2>📞 Nivel 1 — Las llamadas</h2>
+      <p class="texto-nivel-intro">
+        Cada llamada fue un ratito en el que el mundo se quedó afuera.
+      </p>
+
+      <div class="estadisticas-llamadas">
+        <div class="stat">
+          <span class="stat-numero" id="total-llamadas">0</span>
+          <small>llamadas</small>
+        </div>
+        <div class="stat">
+          <span class="stat-numero" id="total-horas">0</span>
+          <small>horas</small>
+        </div>
+        <div class="stat">
+          <span class="stat-numero" id="llamada-mas-larga">0</span>
+          <small>min la más larga</small>
+        </div>
+      </div>
+
+      <!-- Minijuego: adivinar la llamada más larga -->
+      <div class="minijuego">
+        <p class="pregunta-juego">¿Cuál crees que fue nuestra llamada más larga?</p>
+        <div class="opciones-juego">
+          <button class="opcion" data-correcta="false">3 horas</button>
+          <button class="opcion" data-correcta="true">8 horas</button>
+          <button class="opcion" data-correcta="false">5 hora</button>
+        </div>
+        <p id="feedback-nivel-1" class="feedback"></p>
+      </div>
+
+      <button class="btn-siguiente-nivel" data-siguiente="2" disabled>Desbloquear Nivel 2 →</button>
+    </div>
+  </section>
+
+  <!-- ==================== PANTALLA 4: NIVEL 2 — CHATS ==================== -->
+  <section id="nivel-2" class="pantalla nivel-pantalla">
+    <div class="contenido-nivel">
+      <h2>💬 Nivel 2 — Los chats</h2>
+      <p class="texto-nivel-intro">
+        Aquí están algunos de nuestros chats, donde cada palabra fue un pedacito de nosotros.
+      </p>
+
+      <!-- Carrusel de capturas de chat -->
+      <div class="carrusel-chats">
+        <!-- AQUÍ VAN TUS CAPTURAS DE CHAT -->
+        <img src="assets/chats/FT1.jpg" alt="Chat 1" class="img-chat">
+        <img src="assets/chats/FT2.jpg" alt="Chat 2" class="img-chat">
+        <img src="assets/chats/FT3.jpg" alt="Chat 3" class="img-chat">
+        <img src="assets/chats/FT5.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT6.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT7.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT8.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT9.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT10.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT11.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT12.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT13.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT14.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT15.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT16.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT17.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT18.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT19.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT20.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT21.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT22.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT23.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT24.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT25.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT26.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT27.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT28.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT29.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT30.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT31.jpg" alt="Chat 4" class="img-chat">
+        <img src="assets/chats/FT32.jpg" alt="Chat 4" class="img-chat">
+      </div>
+      <h1 class="pie-foto"> Sé que no es mucho, pero para mí corazón lo es todo</h1>
+
+      <button class="btn-siguiente-nivel" data-siguiente="3">Desbloquear Nivel 3 →</button>
+    </div>
+  </section>
+
+  <!-- ==================== PANTALLA 5: NIVEL 3 — FOTOS ==================== -->
+  <section id="nivel-3" class="pantalla nivel-pantalla">
+    <div class="contenido-nivel">
+      <h2>📸 Nivel 3 — Las fotos</h2>
+      <p class="texto-nivel-intro">
+        Cada foto es un pedacito de ti que guardo como tesoro.
+      </p>
+
+      <div class="galeria-fotos">
+        <!-- AQUÍ VAN TUS FOTOS -->
+        <div class="polaroid">
+          <img src="assets/fotos/Foto1(1).webp" alt="Foto1">
+          <p class="pie-foto">Tu bella sonrisa alegra mis días</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto3.png" alt="Foto3">
+          <p class="pie-foto">Nunca me arrepentiré de haber firmado ese pacto</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto4.webp" alt="Foto4">
+          <p class="pie-foto">Fue la primera vez que te vi con algo de maquillajey te quedo hermoso</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto5.webp" alt="Foto5">
+          <p class="pie-foto">Me da risa cada vez que actuas como una niña chiquita</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto8.jpg" alt="Foto8">
+          <p class="pie-foto">Siempre vas a ser el amor de mi vida</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto9.jpg" alt="Foto9">
+          <p class="pie-foto">Adoro ver lo tranquila que estas en esta foto</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto10.jpg" alt="Foto10">
+          <p class="pie-foto"> Eres una de las mejores decisiones que jamás he tomado</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto11.jpg" alt="Foto11">
+          <p class="pie-foto">Adoro esa cara que haces cuando sacas la lengua</p>
+        </div>
+          <div class="polaroid">
+          <img src="assets/fotos/Foto12.jpg" alt="Foto12">
+          <p class="pie-foto">Amo lo adorable que eres</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto17(1).jpg" alt="Foto17">
+          <p class="pie-foto">Me divertí viendo tu reacción al ver que te estaban grabando</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto18(1).jpg" alt="Foto18">
+          <p class="pie-foto">Me gusto como te tapaste la cara para no salir en la foto</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto19(1).jpg" alt="Foto19">
+          <p class="pie-foto">Eres increíblemente hermosa, aún cuando no lo intentas aparentar</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto20(1).jpg" alt="Foto20">
+          <p class="pie-foto">Esa mirada tuya me hace olvidar todo</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto22(1).jpg" alt="Foto22">
+          <p class="pie-foto">La suavidad de tu mirada y ese gesto juguetón con el peluche resaltan una belleza tierna y una inocencia que cautiva al instante</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto23(1).jpg" alt="Foto23">
+          <p class="pie-foto">Me quedo embobado mirando sus ojos brillantes en esta foto; hay tanta dulzura e inocencia en su mirada que me cuesta creer que sea real</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto24(1).jpg" alt="Foto24">
+          <p class="pie-foto">Tu rostro muestra una belleza angelical y una adorable curiosidad que transmite la más pura inocencia.</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto25(1).jpg" alt="Foto25">
+          <p class="pie-foto">Su belleza serena en esta imagen, con la mirada tranquila y el cabello suelto, me transmite una paz inmensa y una adorabilidad que me derrite</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto26(1).jpg" alt="Foto26">
+          <p class="pie-foto">Amo cuando se muestra espontánea y juguetona así; esa mezcla de belleza natural y travesura inocente es lo que me tiene completamente loco por ella</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto27(1).jpg" alt="Foto27">
+          <p class="pie-foto">Recostada y con la mirada perdida, se ve tanadorable que dan ganas de protegerla</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto28(1).jpg" alt="Foto28">
+          <p class="pie-foto">Ese gesto con la lengua me parece lo más adorable del mundo; es mi Val siendo divertida, hermosa y totalmente inocente y sin malicia al mismo tiempo</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto33(1).jpg" alt="Foto33">
+          <p class="pie-foto">Adoro lo bella y graciosa que luces con ese mostacho</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto34(1).jpg" alt="Foto34">
+          <p class="pie-foto">Y esos hermosos labios por los cuales mataría con tal de recibir tan solo uno de esos hermosos besos</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto35(1).jpg" alt="Foto35">
+          <p class="pie-foto">Amo lo buena que eres con Darío, y estoy muy segurísimo de que serías una hermosa madre, y me gustaría estar allí en ese momento</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto37(1).jpg" alt="Foto37">
+          <p class="pie-foto">Aunque sepas que sí me preocupe, no sabes en realidad el inmenso miedo que tuve cuando me mandaste esa foto, que lo único que quería era ir a verte</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto38(1).jpg" alt="Foto38">
+          <p class="pie-foto">Aunque no me guste que hagas ciertas cosas, siempre estaré ahí para protegerte</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto42.jpg" alt="Foto42">
+          <p class="pie-foto">Si tan solo pudieras verte a travez de mis ojos, lograrías ver lo especial y bellísima que eres para mí </p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto43.jpg" alt="Foto43">
+          <p class="pie-foto">Esta es una de mis fotos favoritas, una en la que puedo ver lo linda y cute que eras de chica. Y creeme, daría lo que fuera por haberte conocido antes y vivir cerca tuyo. Y lo digo en el buen plan</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto45.jpg" alt="Foto45">
+          <p class="pie-foto">Esta es mi segunda foto favorita, y jamás me arrepentire de decir que tome la mejor decisión al conocerte</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto47.jpg" alt="Foto47">
+          <p class="pie-foto">No sabes lo mucho que te amo</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto50.jpg" alt="Foto50">
+          <p class="pie-foto">Siempre amaré el haber roto la regla de no hablar con extraños, ya que gracias a eso pude conocerte</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto51.jpg" alt="Foto51">
+          <p class="pie-foto">Recuerdo como siempre te decía que me dijeras para ayudarte a hacer las tareas y no querías</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto56.jpg" alt="Foto56">
+          <p class="pie-foto">Amo esos bellos ojos que siempre me miran con tanto amor y ternura</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto72.jpg" alt="Foto72">
+          <p class="pie-foto">Esta es mi tercer foto favorita, una en la que puedo ver lo linda y hermosa que eres siempre, pero sobre todo, siempre luciendo bien con cualquier cosa que te pongas</p>
+        </div>
+        <div class="polaroid">
+          <img src="assets/fotos/Foto57.jpg" alt="Foto57">
+          <p class="pie-foto">Para mí, eres simplemente la persona más especial que he conocido nunca, y no lo digo solo por tu belleza natural, sino por tu corazón, tu alma y tu forma de ser. Por siempre estar para mí cuando te necesito, cuando ya no sé que más hacer. Te amo con todo mi corazón y alma</p>
+        </div>
+      </div>
+
+      <button class="btn-siguiente-nivel" data-siguiente="4">Desbloquear Nivel 4 →</button>
+    </div>
+  </section>
+
+  <!-- ==================== PANTALLA 6: NIVEL 4 — VIDEOS ==================== -->
+  <section id="nivel-4" class="pantalla nivel-pantalla">
+    <div class="contenido-nivel">
+  <h2>🎥 Nivel 4 — Los videos</h2>
+  <p class="texto-nivel-intro">
+    Momentos tuyos que veo una y otra vez.
+  </p>
+  <div class="lista-videos">
+    <!-- AQUÍ VAN TUS VIDEOS -->
+    <video controls class="video-item" data-video="1">
+      <source src="assets/videos/vid1.mp4" type="video/mp4">
+    </video>
+    <video controls class="video-item" data-video="2">
+      <source src="assets/videos/vid2.mp4" type="video/mp4">
+    </video>
+    <video controls class="video-item" data-video="5">
+      <source src="assets/videos/vid5.mp4" type="video/mp4">
+    </video>
+    <video controls class="video-item" data-video="4">
+      <source src="assets/videos/vid4.mp4" type="video/mp4">
+    </video>
+    <video controls class="video-item" data-video="3">
+      <source src="assets/videos/vid3.mp4" type="video/mp4">
+    </video>
+    <video controls class="video-item" data-video="6">
+      <source src="assets/videos/vid6.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <p id="progreso-videos" class="progreso-videos">Videos vistos: 0 / 6</p>
+
+  <button class="btn-siguiente-nivel" data-siguiente="5" disabled>
+    Ver los 6 videos para desbloquear →
+  </button>
+</div>
+  </section>
+
+  <!-- ==================== PANTALLA 7: NIVEL 5 — PALABRAS ==================== -->
+  <section id="nivel-5" class="pantalla nivel-pantalla">
+    <div class="contenido-nivel">
+      <h2>💌 Nivel 5 — Las palabras</h2>
+      <p class="texto-nivel-intro">
+        Toca la pantalla para revelar lo que nunca te dije.
+      </p>
+
+      <div id="contenedor-palabras" class="contenedor-palabras">
+        <!-- Las frases se generan desde script.js -->
+      </div>
+      <p class="instruccion-toque">Toca para continuar →</p>
+
+      <button class="btn-siguiente-nivel" data-siguiente="6" disabled>Desbloquear Nivel 6 →</button>
+    </div>
+  </section>
+
+  <!-- ==================== PANTALLA 8: NIVEL 6 — CARTA FINAL ==================== -->
+  <section id="nivel-6" class="pantalla nivel-pantalla">
+    <div class="contenido-nivel">
+      <h2>🏆 Nivel 6 — La carta final</h2>
+
+      <div id="sobre" class="sobre">
+        <p class="texto-sobre">Toca para abrir</p>
+      </div>
+
+      <div id="carta" class="carta oculto">
+        <p id="texto-carta" class="texto-carta"></p>
+        <button id="btn-final" class="btn-principal oculto">Quedarme contigo 💙💜</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL ==================== -->
+  <section id="pantalla-final" class="pantalla">
+    <div class="contenido-final">
+      <h1>Me quedo contigo.</h1>
+      <p>Sin importar cuán lejos, cuán triste, cuántas promesas rompamos.</p>
+      <p class="frase-final">Aquí estoy. Aquí me quedo. 💙💜</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+========================================
+   REGALO PARA VALENTINA — INSTRUCCIONES
+========================================
+
+Este proyecto es una página web interactiva hecha para Val.
+NO necesitas saber programar para terminarla. Solo sigue estos pasos.
+
+
+----------------------------------------
+1. ESTRUCTURA DE CARPETAS
+----------------------------------------
+
+Tu carpeta regalo-valen debe verse así:
+
+regalo-valen/
+├── index.html
+├── style.css
+├── script.js
+├── LEEME.txt
+└── assets/
+    ├── fotos/
+    ├── chats/
+    ├── videos/
+    └── musica/
+
+
+----------------------------------------
+2. FOTOS (Nivel 3)
+----------------------------------------
+
+Guarda tus fotos en: assets/fotos/
+
+Renómbralas así:
+  foto1.jpg
+  foto2.jpg
+  foto3.jpg
+  (y así sucesivamente)
+
+Formatos aceptados: .jpg, .jpeg, .png, .webp
+
+Luego abre index.html y busca la sección:
+  <!-- AQUÍ VAN TUS FOTOS -->
+
+Ahí verás bloques <div class="polaroid"> con imágenes.
+Puedes:
+  - Cambiar la ruta si usas más fotos
+  - Cambiar el texto de <p class="pie-foto"> por una frase tuya
+
+Ejemplo:
+  <div class="polaroid">
+    <img src="assets/fotos/foto1.jpg" alt="Foto 1">
+    <p class="pie-foto">Tu sonrisa ilumina todo</p>
+  </div>
+
+Copia y pega ese bloque tantas veces como fotos tengas.
+
+
+----------------------------------------
+3. CHATS (Nivel 2)
+----------------------------------------
+
+Toma capturas de pantalla de tus chats (WhatsApp, Instagram, etc.)
+Guárdalas en: assets/chats/
+
+Renómbralas así:
+  chat1.jpg
+  chat2.jpg
+  chat3.jpg
+
+Luego abre index.html y busca:
+  <!-- AQUÍ VAN TUS CAPTURAS DE CHAT -->
+
+Verás:
+  <img src="assets/chats/chat1.jpg" alt="Chat 1" class="img-chat">
+  <img src="assets/chats/chat2.jpg" alt="Chat 2" class="img-chat">
+  <img src="assets/chats/chat3.jpg" alt="Chat 3" class="img-chat">
+
+Agrega más líneas <img> si tienes más capturas.
+
+
+----------------------------------------
+4. VIDEOS (Nivel 4)
+----------------------------------------
+
+Guarda tus videos en: assets/videos/
+
+Renómbralos así:
+  video1.mp4
+  video2.mp4
+
+IMPORTANTE: el formato .mp4 es el más compatible con celulares.
+Si tienes videos en otro formato, conviértelos con una app
+o con un conversor online (busca "convertir video a mp4").
+
+Luego abre index.html y busca:
+  <!-- AQUÍ VAN TUS VIDEOS -->
+
+Verás:
+  <video controls class="video-item">
+    <source src="assets/videos/video1.mp4" type="video/mp4">
+  </video>
+
+Copia y pega ese bloque por cada video.
+
+
+----------------------------------------
+5. MÚSICA (opcional)
+----------------------------------------
+
+Guarda tu canción en: assets/musica/
+
+Renómbrala así:
+  cancion.mp3
+
+Después, en index.html, agrega esta línea justo antes de </body>:
+
+  <audio id="musica-fondo" loop>
+    <source src="assets/musica/cancion.mp3" type="audio/mp3">
+  </audio>
+
+Y en script.js, agrega al inicio:
+
+  document.addEventListener('click', () => {
+    const musica = document.getElementById('musica-fondo');
+    if (musica && musica.paused) musica.play();
+  }, { once: true });
+
+(Esto hace que la música empiece al primer toque, porque los
+navegadores no dejan que suene sola.)
+
+
+----------------------------------------
+6. PERSONALIZAR TEXTOS Y FRASES
+----------------------------------------
+
+Abre script.js y busca estas partes:
+
+A) Números de llamadas (Nivel 1):
+   animarNumero('total-llamadas', 247);
+   animarNumero('total-horas', 89);
+   animarNumero('llamada-mas-larga', 240);
+
+   Cambia 247, 89 y 240 por tus números reales.
+   (Los sacas de WhatsApp: Ajustes → Almacenamiento → Llamadas,
+   o de Instagram: Mensajes → Llamadas)
+
+B) Frases del Nivel 5:
+   const frases = [
+     'Desde que llegaste, todo tiene más color.',
+     ...
+   ];
+
+   Cambia cada frase por las tuyas. Agrega o quita las que quieras.
+
+C) La carta final (Nivel 6):
+   const contenidoCarta = `Val: ...`;
+
+   Este es el corazón del regalo. Escríbelo con tus palabras.
+   Respeta los saltos de línea: cada vez que quieras un salto,
+   presiona Enter dentro de las comillas ` `.
+
+
+----------------------------------------
+7. MINIJUEGO DEL NIVEL 1
+----------------------------------------
+
+En index.html, busca:
+  <div class="opciones-juego">
+    <button class="opcion" data-correcta="false">2 horas</button>
+    <button class="opcion" data-correcta="true">4 horas</button>
+    <button class="opcion" data-correcta="false">1 hora</button>
+  </div>
+
+Cambia los textos por opciones reales, y deja
+data-correcta="true" SOLO en la respuesta correcta.
+
+
+----------------------------------------
+8. CÓMO PROBARLO EN TU COMPU
+----------------------------------------
+
+Opción 1: Doble clic en index.html (se abre en el navegador)
+Opción 2: En VS Code, clic derecho en index.html →
+          "Open with Live Server" (se recarga solo al guardar)
+
+
+----------------------------------------
+9. CÓMO PUBLICARLO Y ENVIARLE EL LINK
+----------------------------------------
+
+La forma más fácil: NETLIFY DROP
+
+  1. Ve a: https://app.netlify.com/drop
+  2. Arrastra tu carpeta regalo-valen completa a la página
+  3. Espera 10 segundos
+  4. Te da un link tipo: https://algo-random.netlify.app
+  5. Envíale ese link a Val por WhatsApp
+
+Otra opción: GITHUB PAGES
+
+  1. Crea cuenta en github.com
+  2. Sube tu carpeta como repositorio
+  3. Ve a Settings → Pages → activa GitHub Pages
+  4. Te da un link: https://tuusuario.github.io/regalo-valen
+
+
+----------------------------------------
+10. CHECKLIST ANTES DE ENVIARLO
+----------------------------------------
+
+[ ] Cambié los números de llamadas reales
+[ ] Cambié las frases del Nivel 5 por las mías
+[ ] Escribí la carta final con mis palabras
+[ ] Metí las fotos en assets/fotos/
+[ ] Metí las capturas en assets/chats/
+[ ] Metí los videos en assets/videos/
+[ ] (Opcional) Metí la música en assets/musica/
+[ ] Probé todo en el celular (abre el link en tu teléfono)
+[ ] Verifiqué que el botón "No" se escapa
+[ ] Verifiqué que los niveles se desbloquean
+
+
+----------------------------------------
+11. DETALLES TÉCNICOS (por si algo falla)
+----------------------------------------
+
+- Si las fotos no se ven: revisa que el nombre del archivo
+  coincida EXACTAMENTE con el del HTML (mayúsculas incluidas).
+
+- Si el contador sale mal: revisa la fecha en script.js:
+  const FECHA_INICIO = new Date('2026-05-25T00:00:00');
+
+- Si los niveles no se desbloquean: borra el localStorage.
+  En Chrome: F12 → Application → Local Storage → borrar.
+
+- Si un video no se reproduce: conviértelo a .mp4
+
+
+----------------------------------------
+12. UN ÚLTIMO CONSEJO
+----------------------------------------
+
+No busques la perfección. Busca que se sienta tuyo.
+
+Val no va a recordar si un párrafo tenía coma o punto.
+Va a recordar que te tomaste el tiempo de construirle
+un universo entero solo para decirle que te quedas.
+
+Porque eso es lo que estás haciendo.
+
+Aquí estás. Aquí te quedas. 💙💜
+
+— Fin de las instrucciones —
